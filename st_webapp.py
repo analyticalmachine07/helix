@@ -16,8 +16,6 @@ st.write('It only considers numerical columns, hence you have to encode the cate
 
 
 def main():
-    st.info(__doc__)
-    st.markdown(STYLE, unsafe_allow_html = True)
     file = st.file_uploader("upload csv file", type = ["csv"])
     show_file = st.empty()
     if not file:
@@ -87,8 +85,7 @@ def main():
             st.write(mean_squared_error(y_test,y_pred))
                  
     except:
-        st.write('ERROR')
-        #pass
+        pass
 
 main()
 

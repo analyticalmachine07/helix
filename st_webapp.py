@@ -14,15 +14,7 @@ st.title('Regression WebApp')
 st.warning('Please note that it is only a simple regression application')
 st.write('It only considers numerical columns, hence you have to encode the categorical values mannually and then enter the encoded data here')
 
-STYLE = """
-<style>
-img{
-max-widh = 100%;
-}
-</style>
-"""
 
-global df
 def main():
     st.info(__doc__)
     st.markdown(STYLE, unsafe_allow_html = True)
@@ -34,6 +26,7 @@ def main():
     content = file.getvalue()
     
     df = pd.read_csv(file)
+    st.write('Data:')
     st.dataframe(df)
     file.close()
     # Name of the data file
@@ -45,8 +38,7 @@ def main():
     
         # Read data
         #df = pd.read_csv(df)
-        st.write('Data:')
-        st.write(df)
+        
 
         s2 = st.sidebar.selectbox('Select Y',df.columns)
         s3 = st.sidebar.multiselect('Select X',df.columns)
